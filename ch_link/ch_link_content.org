@@ -683,7 +683,7 @@ A good code should have large distance and large rate – but arbitrary combinat
   - E.g.: $o = x_1 \,\mathrm{XOR}\, x_5  \,\mathrm{XOR}\, x_7 \,\mathrm{XOR}\, x_8$ 
 \pause 
 - Equivalent: Sum of these payload bits, modulo 2 
-  - E.g., $o = (x_1 + _x5 + x_7 + x_8) \, \mathrm{MOD}\, 2$
+  - E.g., $o = (x_1 + x_5 + x_7 + x_8) \, \mathrm{MOD}\, 2$
 \pause 
 - Which payload bits: multiply by zero or one 
   - E.g., $o = (0\cdot x_0 + 1\cdot  x_1 + 0 \cdot x_2 + 0 \cdot x_3 +  0 \cdot x_4 + 1 \cdot x_5 + 0 \cdot x_6 + 1 \cdot  x_7 + 1\cdot  x_8) \, \mathrm{MOD}\, 2$
@@ -1101,7 +1101,7 @@ Gives rise to notion of *coding gain*
 \]
 **** CRC – Overview 
 
-#+caption: OVerview of CRC at transmitter, channel, and receiver
+#+caption: Overview of CRC at transmitter, channel, and receiver
 #+attr_latex: :width 0.95\textwidth :height 0.6\textheight :options keepaspectratio,page=\getpagerefnumber{page:ll:crc}
 #+NAME: fig:ll:crc
 [[./standalone/econtrol.pdf]]
@@ -1114,12 +1114,12 @@ Gives rise to notion of *coding gain*
   - If $G(x)$ divides $E(x)\not=0$ without remainder, an error slips
     through!
 \pause
-- Single bit error: $E(x) = x_i$ for error at position $i$
+- Single bit error: $E(x) = x^i$ for error at position $i$
   - $G(x)$ needs two or more terms to ensure that $E(x)$ is not a multiple of it
 \pause
-- Two bit errors: $E(x) = x_i + x_j = x_j \cdot (x_{i-j} +1)$ for some $i>j$
+- Two bit errors: $E(x) = x^i + x^j = x^j \cdot (x^{i-j} +1)$ for some $i>j$
   - $x$ must not divide $G(x)$
-  - $G(x)$ must not divide $(x_k + 1)$ for all $k$ up to, e.g., maximum frame length
+  - $G(x)$ must not divide $(x^k + 1)$ for all $k$ up to, e.g., maximum frame length
 \pause
 - Odd number of errors: $E(x)$ has an odd number of terms
   - $E(x)$ will NOT have $(x+1)$ as a factor (simple proof by contradiction)
